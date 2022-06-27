@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 public class Conectar {
 
   private static String usuario, puerto, estado;
-  private static Connection conexion;
+  public static Connection conexion;
 
   public Conectar() {}
 
@@ -34,6 +34,8 @@ public class Conectar {
       VentanaPrincipal.itemServidorDesconectar.setEnabled(true);
       VentanaPrincipal.itemBDGestion.setEnabled(true);
       VentanaPrincipal.itemTablaMostrar.setEnabled(true);
+      VentanaPrincipal.itemTablaCrear.setEnabled(true);
+      VentanaPrincipal.itemTablaInsertar.setEnabled(true);
       VentanaPrincipal.setUsuario(usuario);
       VentanaPrincipal.setPuerto(puerto);
       VentanaPrincipal.setEstado("Conectado");

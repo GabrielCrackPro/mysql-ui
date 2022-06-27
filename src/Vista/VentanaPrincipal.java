@@ -12,7 +12,8 @@ public class VentanaPrincipal
 
   private JMenuBar barraMenu = new JMenuBar();
   private JMenu menuServidor, menuBD, menuTabla;
-  public static JMenuItem itemServidorConectar, itemServidorDesconectar, itemBDGestion, itemTablaMostrar;
+  public static JMenuItem itemServidorConectar, itemServidorDesconectar, itemBDGestion, itemTablaMostrar,
+      itemTablaCrear, itemTablaInsertar;
 
   private JPanel panelDatosConexion, panelBD, panelTabla, panelMostrarTabla, panelInformacion;
 
@@ -51,12 +52,20 @@ public class VentanaPrincipal
     itemTablaMostrar = new JMenuItem("Mostrar");
     itemTablaMostrar.setEnabled(false);
 
+    itemTablaCrear = new JMenuItem("Crear");
+    itemTablaCrear.setEnabled(false);
+
+    itemTablaInsertar = new JMenuItem("Insertar datos");
+    itemTablaInsertar.setEnabled(false);
+
     menuServidor.add(itemServidorConectar);
     menuServidor.add(itemServidorDesconectar);
 
     menuBD.add(itemBDGestion);
 
     menuTabla.add(itemTablaMostrar);
+    menuTabla.add(itemTablaCrear);
+    menuTabla.add(itemTablaInsertar);
 
     barraMenu.add(menuServidor);
     barraMenu.add(menuBD);
@@ -180,6 +189,8 @@ public class VentanaPrincipal
 
     itemTablaMostrar.addActionListener(this);
 
+    itemTablaCrear.addActionListener(this);
+
     comboBoxTabla.addItemListener(this);
   }
 
@@ -208,6 +219,8 @@ public class VentanaPrincipal
       } catch (SQLException ex) {}
     } else if (e.getSource() == itemBDGestion) {
       new SubventanaGestionBD();
+    } else if (e.getSource() == itemTablaCrear) {
+      new SubventanaCrearTabla();
     }
   }
 
